@@ -11,3 +11,5 @@
 .accomplishment-list {
 	font-size: .8em;
 }
+
+.accomplishment-list > .featured {background-color: yellow;}
