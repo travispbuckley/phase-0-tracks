@@ -1,0 +1,15 @@
+#contact-info {font-size: .8em;}
+.job {
+	background-color: #e9e5dc;
+	border-radius: 25px;
+	padding: 10px;
+	width: 550px;
+	height: 145px;
+	margin-bottom: 10px;
+}
+
+.accomplishment-list {
+	font-size: .8em;
+}
+
+.accomplishment-list > .featured {background-color: yellow;}
