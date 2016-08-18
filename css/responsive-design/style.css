@@ -36,14 +36,28 @@ body {max-width: 960px}
 #external-links {
   display: inline-block;
   vertical-align: text-top;
-  max-width: 30%;
-  min-width: 10%
+  width: 100px;
 
 
 }
 
-main {max-width: 70%;
-  min-width: 50%;
+main {width: 756px;
 display: inline-block;
 vertical-align: text-top;
+
+
 }
+
+
+@media screen and (max-width: 500px) {
+  body {
+    background-color: hotpink;
+  }
+  h1 {font-size: 95%; }
+
+ img { width: 50%; }
+  
+  main {font-size: 75%;}
+
+}
+html {text-align: center;}
