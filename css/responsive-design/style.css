@@ -31,15 +31,19 @@ figcaption {
   text-align: right;
 }
 
-body {width: 960px;}
+body {max-width: 960px}
 
 #external-links {
   display: inline-block;
-  width: 200px;
   vertical-align: text-top;
+  max-width: 30%;
+  min-width: 10%
+
+
 }
 
-main {width: 756px;
+main {max-width: 70%;
+  min-width: 50%;
 display: inline-block;
 vertical-align: text-top;
 }
