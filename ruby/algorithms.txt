@@ -1,0 +1,7 @@
+1) Push the button located outside the elevator door.
+	-Up or down arrow, depending on your destination
+2) Enter the elevator once the doors open
+3) Once inside, turn 180 degrees and located the panel with buttons with numbers on them
+4) Locate the desired floor level, and press the corresponding button with that floor level printed on the front
+5) Wait for the doors to close and brace for elevator impact.
+6) Once doors re-open, advance out onto the floor.
