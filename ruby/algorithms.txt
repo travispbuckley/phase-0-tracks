@@ -1,3 +1,4 @@
+Robot Elevator
 1) Push the button located outside the elevator door.
 	-Up or down arrow, depending on your destination
 2) Enter the elevator once the doors open
@@ -5,3 +6,16 @@
 4) Locate the desired floor level, and press the corresponding button with that floor level printed on the front
 5) Wait for the doors to close and brace for elevator impact.
 6) Once doors re-open, advance out onto the floor.
+
+Cooking Pasta
+1) Retrieve a pot and fill 3/4 with water
+2) Place water filled pot on top of stove burner
+3) Turn burner to ignite and wait for flame
+4) Allow pot to sit on flame for 10 minutes
+5) Obtain box of pasta and pour contents into the water
+6) Allow 12 minutes to pass by
+7) Every 2 minutes, stir with a wooden spoon
+8) Obtain a strainer and place in the sink
+9) Pour the contents of the pot into the strainer to separate the water from the pasta
+10) Remove pasta from sink and place on table for serving
+11) Put wooden spoon inside strainer for ease of access
