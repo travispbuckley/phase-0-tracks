@@ -6,6 +6,7 @@ def vampire_detector
 		user_age = gets.chomp.to_i
 	puts "What year were you born?"
 		birth_year = gets.chomp.to_i
+	current_year = 2016 
 
 		valid_input = false
 		until valid_input
@@ -25,6 +26,28 @@ def vampire_detector
 			else puts "Please answer Yes or No"
 			end 
 		end
+	actual_age = current_year - birth_year
+	if user_age == actual_age
+		user_age = true
+	elsif user_age /= actual_age
+		user_age = false
+	elsif garlic_bread ==  "Yes"
+		garlic_bread = true
+	elsif garlic_bread == "No"
+		garlic_bread = false
+	elsif healthcare == "Yes"
+		healthcare = true
+	elsif healthcare == "No"
+		healthcare = false
+	end 
+
+	if user_age && (garlic_bread || healthcare)
+		puts "Probably not a vampire"
+
+	else 
+		puts "Results inconclusive"
+	end 
+
 end 
 
 vampire_detector
