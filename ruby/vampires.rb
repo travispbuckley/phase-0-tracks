@@ -1,5 +1,10 @@
 def vampire_detector
 
+	puts "How many employees are being processed today?"
+	new_employees = gets.chomp.to_i
+	start_number = 0
+
+	until start_number == new_employees
 	puts "What is your name?"
 		user_name = gets.chomp 
 	puts "what is your age?"
@@ -37,7 +42,12 @@ def vampire_detector
 		else 
 			puts "Results Inconclusive"
 		end 
+	p "Your name is #{user_name}, You are #{user_age} years old, You were born in #{birth_year},
+	 You have said #{garlic_bread} to garlic bread, and #{healthcare} to healthcare."
 	
+
+	start_number = start_number += 1
+	end
 end 
 
 vampire_detector
