@@ -46,7 +46,7 @@ def vampire_detector
 			puts "Almost certainly a Vampire"
 		elsif (2016 - birth_year != user_age) && (garlic_bread == "No" || healthcare == "No")
 			puts "Probably a Vampire"
-		elsif (2016 - birth_year = user_age) && (garlic_bread == "Yes" || healthcare == "Yes")
+		elsif (2016 - birth_year == user_age) && (garlic_bread == "Yes" || healthcare == "Yes")
 			puts "probably not a vampire"
 		else 
 			puts "Results Inconclusive"
@@ -60,3 +60,4 @@ def vampire_detector
 end 
 
 vampire_detector
+puts  "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
