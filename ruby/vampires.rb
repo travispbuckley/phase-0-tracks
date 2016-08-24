@@ -58,6 +58,6 @@ def vampire_detector
 	start_number = start_number += 1
 	end
 end 
-
+#nonsnse
 vampire_detector
 puts  "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
