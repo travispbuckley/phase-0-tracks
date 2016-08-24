@@ -26,28 +26,18 @@ def vampire_detector
 			else puts "Please answer Yes or No"
 			end 
 		end
-	actual_age = current_year - birth_year
-	if user_age == actual_age
-		user_age = true
-	elsif user_age /= actual_age
-		user_age = false
-	elsif garlic_bread ==  "Yes"
-		garlic_bread = true
-	elsif garlic_bread == "No"
-		garlic_bread = false
-	elsif healthcare == "Yes"
-		healthcare = true
-	elsif healthcare == "No"
-		healthcare = false
-	end 
-
-	if user_age && (garlic_bread || healthcare)
-		puts "Probably not a vampire"
-
-	else 
-		puts "Results inconclusive"
-	end 
-
+	if (user_name == "Drake Cula") || (user_name == "Tu Fang")
+			puts "Definitely a Vampire"
+		elsif (2016 - birth_year != user_age) && (garlic_bread == "No") && (healthcare == "No")
+			puts "Almost certainly a Vampire"
+		elsif (2016 - birth_year != user_age) && (garlic_bread == "No" || healthcare == "No")
+			puts "Probably a Vampire"
+		elsif (2016 - birth_year = user_age) && (garlic_bread == "Yes" || healthcare == "Yes")
+			puts "probably not a vampire"
+		else 
+			puts "Results Inconclusive"
+		end 
+	
 end 
 
 vampire_detector
