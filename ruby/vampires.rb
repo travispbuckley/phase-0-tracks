@@ -31,7 +31,16 @@ def vampire_detector
 			else puts "Please answer Yes or No"
 			end 
 		end
-	if (user_name == "Drake Cula") || (user_name == "Tu Fang")
+		valid_input = false
+		until valid_input
+			puts "Do you have any allergies? Enter 1 at a time, and type done when complete"
+			user_allergy = gets.chomp
+			if user_allergy == "done" || user_allergy == "sunshine"
+				valid_input = true
+			else puts "Please enter another"
+			end 
+		end
+	if (user_name == "Drake Cula") || (user_name == "Tu Fang") || (user_allergy == "sunshine")
 			puts "Definitely a Vampire"
 		elsif (2016 - birth_year != user_age) && (garlic_bread == "No") && (healthcare == "No")
 			puts "Almost certainly a Vampire"
