@@ -31,9 +31,10 @@
  "Elementary,    my   dear        Watson!".squeeze(" ")
 # => "Elementary, my dear Watson!"
 
-# "z".<???>
+"z".bytes.to_s.chop.reverse.chop.reverse
 # => 122 
-# (What is the significance of the number 122 in relation to the character z?)
+# (What is the significance of the number 122 in relation to the character z?
+# In the ascii ranges, lowercase letters are assigned byte numbers 97-122)
 
  "How many times does the letter 'a' appear in this string?".count "a"
 # => 4
