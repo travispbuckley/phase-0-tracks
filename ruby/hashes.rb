@@ -35,8 +35,16 @@ def int_designer
 		user_color = gets.chomp
 
 	client_data = {
-		name: user_name
-
+		name: user_name ,
+		age: user_age ,
+		children: user_children ,
+		decor: user_decor ,
+		married: user_marriage ,
+		residence: current_resid ,
+		color: user_color
 	}
 
+	p client_data
+
 end
+int_designer
