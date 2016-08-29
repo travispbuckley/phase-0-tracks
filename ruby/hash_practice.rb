@@ -8,4 +8,7 @@ int_job_app = {
 	def_ombre: "So last season"
 }
 
+int_job_app[:email] = "new.email@gmail.com"
+int_job_app["job_offer"] = "yes"
+
 p int_job_app
