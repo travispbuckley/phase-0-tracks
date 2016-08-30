@@ -1,15 +1,13 @@
 # Pseudocode
 # Intake Client details: Name, age, number of children, decor theme, 
 # married, years lived there, favorite color
-# 1st) Ask designer/user for this info
+# 1st) Ask designer.user for this info
 # 2nd) Convert user input to appropriate data type (.to_s .to_i)
 # 3rd) Print out hash after submission is complete
 # 4th) Give user chance to update key
 # 		-Designer can opt out of this
 # 		-if designer gives a key that needs updating, ask for new 
-# 			new value and update the key.
-#			-Need to convert the user response (gets.chomp) into the symbol that 
-#			needs to be updated!!
+# 			new value and update the key
 # 5th) Print hash and exit program
 
 def int_designer
@@ -46,11 +44,19 @@ def int_designer
 		color: user_color
 	}
 	p client_data
-	puts "Is this information correct? Please make any additional changes now.
-		  Choose from the follow list: name, age, children, decor, married, residence, or color.
-		  Type 'done' when complete"
-	data_update = gets.chomp.to_sym
 	
+	puts "Any changes? Please respond with name, age, children, decor, married, residence, or color. Type 'done' if no changes"
+	data_update = gets.chomp.to_sym
+
+	if data_update == :done
+		puts "No data changed"
+	elsif data_update == ":name" || ":age" || ":children" || ":decor" || ":married" || ":residence" || ":color"
+		puts "Please enter new data:"
+		new_data = gets.chomp 
+		client_data[data_update] = "#{new_data}"
+	end
+
+	p client_data
 
 end
 int_designer
