@@ -4,9 +4,11 @@ puts "Original data:"
 p letters
 
 # iterate through the array with .map
-modified_letters = letters.map do |letter|
+letters.map! do |letter| #have to use the bang
+	# to modify ea item
   puts letter
-  letter.next
+  letter.next #this will evaluate the new value, so old letter 
+  # is letter, new one is letter.next
 end
 
 puts "After .map call:"
