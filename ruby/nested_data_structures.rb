@@ -14,3 +14,19 @@ hockey_rink = {
 						  		    'Gershman'] 
 						 }
 				},
+			away_team: {
+				coaches: [
+						  'Johnson', 
+						  'Henry'],
+				goalies:
+					{
+					starter: {saves: 145},
+					backup: {saves: 26}	
+					},
+				lead_scorers: [
+							  'Billy', 
+							  'Thomas', 
+							  'Adam']	
+						}
+			},
+
