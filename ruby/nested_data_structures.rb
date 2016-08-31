@@ -29,4 +29,10 @@ hockey_rink = {
 							  'Adam']	
 						}
 			},
-
+	equipment: {
+		pucks: 48 ,
+		sticks: {bauer: 24,
+				ccm: 17,
+				warrior: ['Dynasty', 'Covert', 'QRL4']   }
+	}
+}
