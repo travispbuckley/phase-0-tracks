@@ -5,9 +5,9 @@
 # Change all consonants to next consonent in alphabet (d=>f n=>p)
 # Make the methods separate, work on 1, get it right, and then implement it later
 
-
 def name_scrambler(name)
-	name_to_array = name.downcase.chars
+	new_name = name.downcase.split(' ').reverse!.join(' ')
+	name_to_array = new_name.chars
 	# This takes the string version of the name and makes it into an array, with each letter separated. 
 	consonants = %w{b c d f g h j k l m n p q r s t v w x y z}
 	vowels = %w{a e i o u}
@@ -31,7 +31,7 @@ def name_scrambler(name)
 	#re capitalize by joining the indiv. letters, splitting into first and last, capitalizing, and rejoining
 	name_to_array.join('').split(" ").each{|i| i.capitalize!}.join(" ")
 end
-puts name_scrambler("Travis Buckley")
+name_scrambler("Travis Buckley")
 
 
 
