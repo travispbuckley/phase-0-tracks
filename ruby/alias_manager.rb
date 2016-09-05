@@ -6,6 +6,9 @@
 # Make the methods separate, work on 1, get it right, and then implement it later
 
 def name_scrambler
+	
+	scrambled_names = {}
+
 	puts "What is your first and last name?"
 	user_name = gets.chomp 
 	new_name = user_name.downcase.split(' ').reverse!.join(' ')
@@ -26,14 +29,16 @@ def name_scrambler
 		elsif consonants.include?(letter)
 			new_consonant_index = consonants.index(letter) + 1
 			new_consonant = consonants[new_consonant_index]
-		else
+		else 
 			letter # Accounts for spaces
 		end		
 	end
 	#re capitalize by joining the indiv. letters, splitting into first and last, capitalizing, and rejoining
-	name_to_array.join('').split(" ").each{|i| i.capitalize!}.join(" ")
+	scrambled_name = name_to_array.join('').split(" ").each{|i| i.capitalize!}.join(" ")
+scrambled_names[user_name] = scrambled_name
+	p scrambled_names
 end
-p name_scrambler
+name_scrambler
 
 
 
