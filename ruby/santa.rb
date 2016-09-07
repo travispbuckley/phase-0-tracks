@@ -31,4 +31,5 @@ santa = Santa.new("John", "male", "african-american")
 santa.speak
 santa.eat_milk_and_cookies("chocolate chip")
 santa_info
-# comment
+# comment 1
+ 
