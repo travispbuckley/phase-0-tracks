@@ -13,7 +13,7 @@ class Santa
 	end 
 
 	def eat_milk_and_cookies(cookie_type)
-		puts "That was a good #{cookie_type} cookie!"
+		puts "That was a good #{cookie _type} cookie!"
 	end 
 	def santa_info
 		puts "Meet #{@name}"
@@ -22,11 +22,14 @@ class Santa
 		puts "This santa's age is #{@age}"
 	end 
 end 
+
 santa = Santa.new("Travis", "male", "caucasian")
 santa.speak
 santa.eat_milk_and_cookies("oatmeal raisin")
-santa.santa_info
+santa_info
 santa = Santa.new("John", "male", "african-american")
 santa.speak
 santa.eat_milk_and_cookies("chocolate chip")
-santa.santa_info
+santa_info
+# comment 1
+ 
