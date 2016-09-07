@@ -11,7 +11,7 @@ class Santa
 	def age #this is the getter for the age of our santa
 		@age
 	end 
-	def celebrate_birthday(current_age) #inputs an age, adds 1, sets as age variable
+	def celebrate_birthday=(current_age) #inputs an age, adds 1, sets as age variable
 		@age = current_age + 1
 		puts "happy birthday, you are now #{@age}"
 	end 
@@ -41,7 +41,7 @@ end
 santa = Santa.new("Travis", "Male", "caucasian", "5'11")
 santa.santa_info
 # santa.eat_milk_and_cookies("chocolate")
-santa.celebrate_birthday(5) 
+santa.celebrate_birthday=(5) 
 santa.santa_info
 
  
