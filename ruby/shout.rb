@@ -23,3 +23,8 @@ end
 class Angry_mother
 	include Shout
 end 
+
+mother = Angry_mother.new
+lion = Lion.new
+mother.loud_roar("UGHHH")
+lion.loud_roar("ROAR")
