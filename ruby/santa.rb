@@ -21,6 +21,11 @@ class Santa
 	def eat_milk_and_cookies(cookie_type)
 		puts "That was a good #{cookie _type} cookie!"
 	end 
+	def get_mad_at=(reindeer)
+		@reindeer_ranking.delete(reindeer)
+		@reindeer_ranking[8] =reindeer
+		puts @reindeer_ranking
+	end 
 	def santa_info
 		puts "Meet #{@name}"
 		puts "This santa is a #{@gender}"
@@ -43,5 +48,5 @@ santa.santa_info
 # santa.eat_milk_and_cookies("chocolate")
 santa.celebrate_birthday=(5) 
 santa.santa_info
-
+santa.get_mad_at=("rudolph")
  
