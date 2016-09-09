@@ -21,10 +21,10 @@ class Santa
 	def eat_milk_and_cookies(cookie_type)
 		puts "That was a good #{cookie _type} cookie!"
 	end 
-	def get_mad_at=(reindeer)
-		@reindeer_ranking.delete(reindeer)
-		@reindeer_ranking[8] =reindeer
-		puts @reindeer_ranking
+	def get_mad_at(bad_reindeer)
+	@reindeer_ranking[@reindeer_ranking.index(bad_reindeer)], @reindeer_ranking[-1] = @reindeer_ranking[-1], @reindeer_ranking[@reindeer_ranking.index(bad_reindeer)]
+		puts "If Santa is mad at #{bad_reindeer}, GET THE $#@& TO THE BACK! #{bad_reindeer}!"
+		@reindeer_ranking.each_with_index {|reindeer, index| puts "#{index + 1}: #{reindeer}"}
 	end 
 	def santa_info
 		puts "Meet #{@name}"
@@ -48,5 +48,5 @@ santa.santa_info
 # santa.eat_milk_and_cookies("chocolate")
 santa.celebrate_birthday 
 santa.santa_info
-santa.get_mad_at=("rudolph")
+santa.get_mad_at("rudolph")
  
