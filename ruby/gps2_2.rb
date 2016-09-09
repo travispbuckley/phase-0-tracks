@@ -69,3 +69,28 @@ def print_hash(list)
 end
 
 print_hash(grocery_list)
+
+#Pseudocoding can help a pair right off the bat by just getting each other on 
+#the same page. So instead of going into the hard part of actual code, we establish
+#basically some ground rules that we are going to follow and use together.
+
+#Using an array would be easiest but then we can't assign values to them. So 
+# we have to use a hash. The struggle was getting a hash started that could be used 
+# in all our other methods.
+
+#A method returns whatever you want it to. It will return an object that you 
+# specify the value of with your method call. You can have it do something, 
+# ask something until condition is met, etc.
+
+# You can pass in strings, intergers, booleans, and hashes, just to name a few.
+
+# You can use a global variable inside the methods to pass around info, but it
+# is dangerous because that variable can be changed at any point and its gone once 
+# it's changed, you can't resort back. In this release, we set an empty array
+# outside of our methods, and passed it information using our methods below by
+# using our array when calling the methods.
+
+#I think using variables like this is confusing in general, because so much has to be set
+# up for it to be used correctly. The data is hard to track in my opinion. 
+# Its much easier to use a class and a set of instance variables because
+# you can track them and use them in any method in your class. 
