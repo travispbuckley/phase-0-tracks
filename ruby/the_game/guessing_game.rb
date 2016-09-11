@@ -48,9 +48,18 @@ class Game
 	end 
 	#need method to end the game when the user enters the complete word, or if they run out of guesses
 	def end_game
-		if @board == @user_word
-			puts "YOU F%$#&*% LEGEND! YOU DID IT!"
-			@game_over = true #updates our game to being over with
-		end 
+		if @board == @user_word || @guesses == 0
+			@game_over = true
+		end
 		@game_over
-	end #end
+	end 
+
+	def win_game
+		if @board == @user_word || @guesses == 0
+			puts "YOU F%$#&*% LEGEND! YOU DID IT!"
+			@win_game = true #updates our game to being over with
+		else
+			puts "get your shit together, you lost"
+		end
+	end
+end
