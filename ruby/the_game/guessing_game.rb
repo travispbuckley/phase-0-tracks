@@ -55,11 +55,32 @@ class Game
 	end 
 
 	def win_game
-		if @board == @user_word || @guesses == 0
+		if @board == @user_word || @guesses == 0 #so if the palying board matches the user inputted word, OR the number of guesses runs out, run this code
 			puts "YOU F%$#&*% LEGEND! YOU DID IT!"
-			@win_game = true #updates our game to being over with
+			@win_game = true #updates our game winner to true
 		else
 			puts "get your shit together, you lost"
 		end
 	end
 end
+
+#now we need methods to accept user input, and then use that input to feed into our program
+# use driver code to bridge the gap from user to computer
+# ask the users for their names and set them to a variable to use
+def user_one_info
+	puts "User One enter your name"
+	user_one = gets.chomp
+	user_one
+end 
+def user_two_info
+	puts "User Two enter your name?"
+	user_two = gets.chomp
+	user_two
+end
+#establish our user interface using the methods above
+puts "Welcome to 'The Game'"
+first_player = user_one
+second_player = user_two
+puts "#{first_player}, please enter a word for #{second_player} to guess"
+
+
