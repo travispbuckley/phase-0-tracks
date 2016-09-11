@@ -46,3 +46,12 @@ class Game
 		@guesses -= 1 # subtracts 1 from our allowed number of guesses
 		@board #reprints our gameboard
 	end 
+	#need method to end the game when the user enters the complete word, or if they run out of guesses
+	def end_game
+		if @board == @user_word
+			puts "YOU F%$#&*% LEGEND! YOU DID IT!"
+			@game_over = true #updates our game to being over with
+		end 
+		@game_over
+	end
+	
