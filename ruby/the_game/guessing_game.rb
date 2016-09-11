@@ -82,5 +82,19 @@ puts "Welcome to 'The Game'"
 first_player = user_one
 second_player = user_two
 puts "#{first_player}, please enter a word for #{second_player} to guess"
+user_word = gets.chomp
+#instantiate a new instance of our class, passing in the secret word as a parameter
+game = Game.new(user_word)
+#begin running the instance methods inside our class
+game.user_word
+game.board
+until game.guesses == 0
+	puts "Please guess 1 letter at a time"
+	letter = gets.chomp
+	game.letter_checker(letter)
+	break if game.game_over
+end
+
+game.win_game
 
 
