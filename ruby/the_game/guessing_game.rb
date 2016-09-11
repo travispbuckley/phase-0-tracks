@@ -53,5 +53,4 @@ class Game
 			@game_over = true #updates our game to being over with
 		end 
 		@game_over
-	end
-	
+	end #end
