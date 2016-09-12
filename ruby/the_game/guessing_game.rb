@@ -48,9 +48,54 @@ class Game
 	end 
 	#need method to end the game when the user enters the complete word, or if they run out of guesses
 	def end_game
-		if @board == @user_word
-			puts "YOU F%$#&*% LEGEND! YOU DID IT!"
-			@game_over = true #updates our game to being over with
-		end 
+		if @board == @user_word || @guesses == 0
+			@game_over = true
+		end
 		@game_over
-	end #end
+	end 
+
+	def win_game
+		if @board == @user_word #so if the palying board matches the user inputted word, OR the number of guesses runs out, run this code
+			puts "YOU F%$#&*% LEGEND! YOU DID IT!"
+			@win_game = true #updates our game winner to true
+		else
+			puts "get your shit together, you lost"
+		end
+	end
+end
+
+#now we need methods to accept user input, and then use that input to feed into our program
+# use driver code to bridge the gap from user to computer
+# ask the users for their names and set them to a variable to use
+# def user_one
+# 	puts "User One enter your name"
+# 	first_player = gets.chomp
+# 	first_player
+# end 
+# def user_two
+# 	puts "User Two enter your name?"
+# 	second_player = gets.chomp
+# 	second_player
+# end
+#establish our user interface using the methods above
+puts "Welcome to 'The Game'"
+# first_player = user_one
+# second_player = user_two
+puts "please enter a word to guess"
+user_word = gets.chomp
+#instantiate a new instance of our class, passing in the secret word as a parameter
+game = Game.new(user_word)
+#begin running the instance methods inside our class
+game.user_word
+game.board
+while game.guesses > 0
+	puts "Please guess 1 letter at a time"
+	letter = gets.chomp
+	game.letter_checker(letter)
+	break if game.end_game
+end
+end
+
+game.win_game
+
+
