@@ -62,6 +62,10 @@ class Game
 			puts "get your shit together, you lost"
 		end
 	end
+	def secret_word
+		@user_word 
+	end  
+	
 end
 
 #now we need methods to accept user input, and then use that input to feed into our program
