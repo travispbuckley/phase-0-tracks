@@ -16,6 +16,7 @@ class VirusPredictor
     @population_density = population_density
   end
   # takes population density, population, and states and puts them in to predicted death and speed of spread methods
+ 
   def virus_effects
     predicted_deaths
     speed_of_spread
