@@ -90,3 +90,16 @@ end
 
 #=======================================================================
 # Reflection Section
+# What are the differences between the two different hash syntaxes shown in the state_data file?
+    # the STATE_DATA is a constant set for the hash. This can be used globally within the files.
+# What does require_relative do? How is it different from require?
+    # Require relative allows files from the same folder to be passed through
+    # Require would need the file path to use these variables
+# What are some ways to iterate through a hash?
+    # The ruby docs have all the ways to iterare, but commonly .each will go through each key value pair
+
+# When refactoring virus_effects, what stood out to you about the variables, if anything?
+    # Instance variables didn't need to be called through the parameters of any of the methods.
+    # They can be used anywhere within the class
+# What concept did you most solidify in this challenge?
+    # Iterating through hashes was really solidified during this challenge.
