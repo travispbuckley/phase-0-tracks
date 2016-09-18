@@ -30,6 +30,23 @@ function keyMatcher(object1, object2)
 	}
 }
 
+function arrayCreator(n)
+{
+	var array = [];
+	for (var i = 0; i < n; i++){
+		 var letters = "";
+   		 var alphabet = "abcdefghijklmnopqrstuvwxyz0123456789";
+
+    	for( var j=0; j < Math.floor(Math.random()*10); j++ ){
+       	    letters += alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+    	}
+
+		array.push(letters);
+	}
+	
+	return array;
+}
+
 var object1 = {
 	name: 'Travis', 
 	age: 24 
@@ -44,5 +61,7 @@ var array = ['hello', 'hi', 'rip harambe'];
 console.log(largestString(array));
 
 console.log(keyMatcher(object1, object2));
+
+console.log(arrayCreator(10));
 
 
