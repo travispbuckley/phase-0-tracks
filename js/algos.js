@@ -2,10 +2,7 @@
  returns the longest word/phrase from the array
 	 Have to obtain length of each string
 	 Print the string with the largest number of length
-
-	 Established an array with varying lengths of each
- now need a function to loop through the array, and find
- the longest one */
+*/
 function largestString(array)
 {
 	var arrayStrings = array;
@@ -19,16 +16,31 @@ function largestString(array)
 	}
  	return string;
 } 
-	
-function keyMatcher(object1, object2)
-{
-	if (object1.age === object2.age){
-		return true;
-	}
-	else {
-		return false;
-	}
+/* For the key matcher, i can pass in 2 objects to the function.
+First i can loop through the first object and check for its properties, and
+then loop through the second seeing if there is a match. If they match properties,
+then check if they match values for that properties (keys). If there is a match
+of values, then the console will print a message indicating so, if no match
+is present, then nothing will be displayed because there is no match
+RIP HARAMBE*/
+function keyMatcher(obj1, obj2) {
+
+ 	for (var prop in obj1) {
+ 		for (var prop2 in obj2) {
+ 			if (prop2 === prop) {
+ 				if (obj1[prop] === obj2[prop]) {
+ 					console.log('match on ' + prop);
+ 				}
+ 			}
+ 		}
+ 	}
 }
+
+/* Create an empty array for strings to be stored inside.
+Use the letters of the alphabet as a variable to cycle through and
+push the characters into the empty array. Control the length of 
+each submission using a random number without going above 10
+*/
 
 function arrayCreator(n)
 {
@@ -60,7 +72,7 @@ var object2 = {
 var array = ['hello', 'hi', 'rip harambe'];
 console.log(largestString(array));
 
-console.log(keyMatcher(object1, object2));
+keyMatcher(object1, object2);
 
 console.log(arrayCreator(10));
 
