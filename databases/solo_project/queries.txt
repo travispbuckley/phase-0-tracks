@@ -1,0 +1,16 @@
+SELECT * FROM pets; = |Fred|dog|20|false|male|1
+					 |Tuki|toucan|4|true|male|2
+					 |Tabitha|cat|12|false|female|1
+					 |Doug|parakeet|2|true|male|1
+					 |Consuela|leopard|95|false|female|2
+					 |Michelle Obama|snake|2|false|female|2
+
+OH NO! Both birds got their wings clipped. 
+UPDATE pets SET flight="false" WHERE flight="true"; = 									 |Fred|dog|20|false|male|1
+					 |Tuki|toucan|4|false|male|2
+					 |Tabitha|cat|12|false|female|1
+					 |Doug|parakeet|2|false|male|1
+					 |Consuela|leopard|95|false|female|2
+					 |Michelle Obama|snake|2|false|female|2
+
+SELECT * FROM pets, stores WHERE pets.store_id = stores.id;
