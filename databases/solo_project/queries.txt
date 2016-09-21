@@ -1,0 +1,53 @@
+SELECT * FROM pets; = 1|Fred|dog|20|false|male|1
+					 2|Tuki|toucan|4|true|male|2
+					 3|Tabitha|cat|12|false|female|1
+					 4|Doug|parakeet|2|true|male|1
+					 5|Consuela|leopard|95|false|female|2
+					 6|Michelle Obama|snake|2|false|female|2
+
+OH NO! Both birds got their wings clipped. 
+UPDATE pets SET flight="false" WHERE flight="true"; = 									 1|Fred|dog|20|false|male|1
+					 2|Tuki|toucan|4|false|male|2
+					 3|Tabitha|cat|12|false|female|1
+					 4|Doug|parakeet|2|false|male|1
+					 5|Consuela|leopard|95|false|female|2
+					 6|Michelle Obama|snake|2|false|female|2
+
+SELECT * FROM pets, stores WHERE pets.store_id = stores.id;
+	 1|Fred|dog|20|false|male|1|1|Petsmart|Lisle|18
+	 2|Tuki|toucan|4|false|male|2|Petco|Naperville|22
+	 3|Tabitha|cat|12|false|female|1|1|Petsmart|Lisle|18
+	 4|Doug|parakeet|2|false|male|1|1|Petsmart|Lisle|18
+	 5|Consuela|leopard|95|false|female|2|Petco|Naperville|22
+	 6|Michelle Obama|snake|2|false|female|2|Petco|Naperville|22
+
+SELECT pets.name, stores.name FROM pets JOIN stores ON pets.store_id = stores.id; <--- This selects the pets name and Which store they are at
+	Fred|Petsmart
+	Tuki|Petco
+	Tabitha|Petsmart
+	Doug|Petsmart
+	Consuela|Petco
+	Michelle Obama|Petco
+
+DELETE FROM pets WHERE name = "Michelle Obama"
+					 1|Fred|dog|20|false|male|1
+					 2|Tuki|toucan|4|true|male|2
+					 3|Tabitha|cat|12|false|female|1
+					 4|Doug|parakeet|2|true|male|1
+					 5|Consuela|leopard|95|false|female|2
+
+INNER JOIN:
+SELECT pets.animal, stores.name FROM pets INNER JOIN stores ON pets.store_id=stores.id;
+			dog|Petsmart
+			toucan|Petco
+			cat|Petsmart
+			parakeet|Petsmart
+			leopard|Petco
+
+LEFT JOIN
+SELECT pets.name, stores.location FROM pets LEFT JOIN stores ON pets.store_id=stores.id
+			Fred|Lisle
+			Tuki|Naperville
+			Tabitha|Lisle
+			Doug|Lisle
+			Consuela|Naperville
