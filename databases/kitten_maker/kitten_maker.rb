@@ -41,4 +41,3 @@ end
 # kittens.each do |kitten|
 #  puts "#{kitten['name']} is #{kitten['age']}"
 # end
-
