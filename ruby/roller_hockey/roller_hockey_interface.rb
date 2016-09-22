@@ -13,7 +13,7 @@
 			# Contains primary key, name, time, equipment, and rink_id attributes
 				# rink_id is foreign key for this table
 	# 2. rinks
-			# Contains the rink name and the rinks geographical location
+			# Contains the rink name and the rinks 
 			# This is linked to the users table by its primary key
 			# Only 2 rinks to choose from: Naper and Janes
 # Method 1 (if more than 1 is needed)
@@ -55,9 +55,13 @@ create_table_cmd = <<-SQL
   )
 SQL
 
-create_table_cmd = <<-SQL
+create_table_two_cmd = <<-SQL
   CREATE TABLE IF NOT EXISTS rinks(
     id INTEGER PRIMARY KEY,
     name VARCHAR(255)
   )
 SQL
+
+# Now need to use a command to actually create the table
+schedule.execute(create_table_cmd)
+schedule.execute(create_table_two_cmd)
