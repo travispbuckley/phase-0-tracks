@@ -1,0 +1,20 @@
+SELECT * FROM reviews, users, businesses WHERE reviews.user_id = users.id AND reviews.business_id = businesses.id;
+	- This displays all 3 tables, but doesn't insert the names
+	1|4|Best whopper ive EVER HAD|5|3|3|Angela|Jolie|5|McdAnalds
+	2|1|I was touched innappropriately by a beagle|4|1|1|Bradford|Pitt|4|The Beagle Nightclub
+	3|3|Good workout, pulled my hamstring|2|4|4|Steven|Wonder|2|Lotus Yoga
+	4|5|Food prepared right in front. From the egg to the plate|3|2|2|Mandy|Kaling|3|Sushi World
+	5|2|Lack of beagles|4|6|6|Denzel|George|4|The Beagle Nightclub
+	6|4|Quick like my husband, but quite bumpy|1|5|5|Holly|Berry|1|Amir's Towing
+	7|4|Best sushi in town!|3|3|3|Angela|Jolie|3|Sushi World
+	8|1|Smells like a doghouse|4|2|2|Mandy|Kaling|4|The Beagle Nightclub
+
+select users.first_name, businesses.name, reviews.comment, reviews.stars from reviews inner join users on reviews.user_id=users.id inner join businesses on reviews.business_id=businesses.id;
+			Angela|McdAnalds|Best whopper ive EVER HAD|4
+			Bradford|The Beagle Nightclub|I was touched innappropriately by a beagle|1
+			Steven|Lotus Yoga|Good workout, pulled my hamstring|3
+			Mandy|Sushi World|Food prepared right in front. From the egg to the plate|5
+			Denzel|The Beagle Nightclub|Lack of beagles|2
+			Holly|Amir's Towing|Quick like my husband, but quite bumpy|4
+			Angela|Sushi World|Best sushi in town!|4
+			Mandy|The Beagle Nightclub|Smells like a doghouse|1
