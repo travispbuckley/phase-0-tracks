@@ -36,3 +36,28 @@
 	# Date. I could use a date attribute inside the users table, but maybe 
 		# could use some other sort of logic to automatically display date entry?
 	
+#Step 1: Require sqlite3 for database usage
+require 'sqlite3'
+
+# Create my new database
+
+schedule = SQLite3::Database.new("schedule.db")
+
+# Create my tables, making sure not to override any (use the IF NOT EXISTS syntax)
+create_table_cmd = <<-SQL
+  CREATE TABLE IF NOT EXISTS users(
+    id INTEGER PRIMARY KEY,
+    name VARCHAR(255),
+    time VARCHAR(255),
+    equip VARCHAR(500),
+    rink_id INT,
+    FOREIGN KEY (rink_id) REFERENCES rinks.id
+  )
+SQL
+
+create_table_cmd = <<-SQL
+  CREATE TABLE IF NOT EXISTS rinks(
+    id INTEGER PRIMARY KEY,
+    name VARCHAR(255)
+  )
+SQL
