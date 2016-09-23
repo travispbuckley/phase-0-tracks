@@ -85,21 +85,40 @@ schedule.execute(create_table_cmd)
 # 		"
 
 def schedule_maker(schedule) #pass in the database
-	puts "Hi, Welcome to the Roller Hockey Schedule. Please Enter your first name."
-	f_name = gets.chomp.downcase.capitalize
-	puts "Please enter your last name"
-	l_name = gets.chomp.downcase.capitalize
-	puts "Please enter the rink you plan to go to. Naper or Janes"
-	r_name = gets.chomp.downcase.capitalize
-	puts "Please enter your equipment? EX: shoes, blades, goalie, etc"
-	equipment = gets.chomp.downcase
-	puts "Finally, please enter your estimated time of arrival, in this format: 11:30am"
-	est_time = gets.chomp.to_s
+	
+	valid_input = false
 
-	schedule.execute("INSERT INTO users (first_name, last_name, time, equip) VALUES (?, ?, ?, ?)",
-		f_name, l_name, est_time, equipment)
-	schedule.execute("INSERT INTO rinks (rink_name) VALUES (?)", r_name)
+	until valid_input
+		puts "Hi, welcome to Roller Hockey Scheduler. If you are a new user, type 'new user' to enter your information.\nExisting users, type 'help'
+	for a list of commands to update your information."
 
+	first_response = gets.chomp.downcase
+
+		if first_response == "help"
+			puts "To edit your previous information, try the following commands:\nfirst name\nlast name\nrink\nequipment\ntime\nThe above will allow you to edit any previously entered information."
+			valid_input = true
+		elsif first_response == "new user"
+			puts "Hi, Welcome to the Roller Hockey Schedule. Please Enter your first name."
+			f_name = gets.chomp.downcase.capitalize
+			puts "Please enter your last name"
+			l_name = gets.chomp.downcase.capitalize
+			puts "Please enter the rink you plan to go to. Naper or Janes"
+			r_name = gets.chomp.downcase.capitalize
+			puts "Please enter your equipment? EX: shoes, blades, goalie, etc"
+			equipment = gets.chomp.downcase
+			puts "Finally, please enter your estimated time of arrival, in this format: 11:30am"
+			est_time = gets.chomp.to_s
+			# The below is only for new users entering ALL of their information.
+			schedule.execute("INSERT INTO users (first_name, last_name, time, equip) VALUES (?, ?, ?, ?)",
+				f_name, l_name, est_time, equipment)
+			schedule.execute("INSERT INTO rinks (rink_name) VALUES (?)", r_name)
+			valid_input = true
+		else
+			puts "I didn't understand you, please try again."
+		end 
+	end
+	# This nis where the conditionals will go for them to update their information. I will need
+	# a conditional for each of the characteristics, as well as a sqlite3 update command for that characteristic
 end 
 
 schedule_maker(schedule)
