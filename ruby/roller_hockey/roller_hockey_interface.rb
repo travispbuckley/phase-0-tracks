@@ -88,4 +88,8 @@ def schedule_maker(schedule) #pass in the database
 
 	schedule.execute("INSERT INTO users (first_name, last_name, time, equip) VALUES
 		(f_name, l_name, est_time, equipment)")
-	schedule.execute("INSERT INTO rinks (")
+	schedule.execute("INSERT INTO rinks (rink_name) VALUES (r_name)")
+
+end 
+
+schedule_maker(schedule)
