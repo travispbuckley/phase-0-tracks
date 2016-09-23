@@ -43,7 +43,14 @@ require 'sqlite3'
 
 schedule = SQLite3::Database.new("schedule.db")
 
-# Create my tables, making sure not to override any (use the IF NOT EXISTS syntax)
+#Create my tables, making sure not to override any (use the IF NOT EXISTS syntax)
+create_table_two_cmd = <<-SQL
+  CREATE TABLE IF NOT EXISTS rinks(
+    id INTEGER PRIMARY KEY,
+    rink_name VARCHAR(255)
+  )
+SQL
+
 create_table_cmd = <<-SQL
   CREATE TABLE IF NOT EXISTS users(
     id INTEGER PRIMARY KEY,
@@ -52,20 +59,23 @@ create_table_cmd = <<-SQL
     time VARCHAR(255),
     equip VARCHAR(500),
     rink_id INT,
-    FOREIGN KEY (rink_id) REFERENCES rinks.id
+    FOREIGN KEY (rink_id) REFERENCES rinks(id)
   )
 SQL
 
-create_table_two_cmd = <<-SQL
-  CREATE TABLE IF NOT EXISTS rinks(
-    id INTEGER PRIMARY KEY,
-    rink_name VARCHAR(255)
-  )
-SQL
+# create_table_two_cmd = <<-SQL
+#   CREATE TABLE IF NOT EXISTS rinks(
+#     id INTEGER PRIMARY KEY,
+#     rink_name VARCHAR(255)
+#   )
+# SQL
+
+
 
 # Now need to use a command to actually create the table
-schedule.execute(create_table_cmd)
 schedule.execute(create_table_two_cmd)
+schedule.execute(create_table_cmd)
+
 
 # def schedule_maker
 # 	puts "Welcome to the Roller Hockey Scheduler\n Type 'help' to see our list of commands"
@@ -86,9 +96,9 @@ def schedule_maker(schedule) #pass in the database
 	puts "Finally, please enter your estimated time of arrival, in this format: 11:30am"
 	est_time = gets.chomp.to_s
 
-	schedule.execute("INSERT INTO users (first_name, last_name, time, equip) VALUES
-		(f_name, l_name, est_time, equipment)")
-	schedule.execute("INSERT INTO rinks (rink_name) VALUES (r_name)")
+	schedule.execute("INSERT INTO users (first_name, last_name, time, equip) VALUES (?, ?, ?, ?)",
+		f_name, l_name, est_time, equipment)
+	schedule.execute("INSERT INTO rinks (rink_name) VALUES (?)", r_name)
 
 end 
 
