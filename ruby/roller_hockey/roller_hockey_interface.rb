@@ -47,7 +47,8 @@ schedule = SQLite3::Database.new("schedule.db")
 create_table_cmd = <<-SQL
   CREATE TABLE IF NOT EXISTS users(
     id INTEGER PRIMARY KEY,
-    name VARCHAR(255),
+    first_name VARCHAR(255),
+    last_name VARCHAR(255),
     time VARCHAR(255),
     equip VARCHAR(500),
     rink_id INT,
@@ -58,10 +59,33 @@ SQL
 create_table_two_cmd = <<-SQL
   CREATE TABLE IF NOT EXISTS rinks(
     id INTEGER PRIMARY KEY,
-    name VARCHAR(255)
+    rink_name VARCHAR(255)
   )
 SQL
 
 # Now need to use a command to actually create the table
 schedule.execute(create_table_cmd)
 schedule.execute(create_table_two_cmd)
+
+# def schedule_maker
+# 	puts "Welcome to the Roller Hockey Scheduler\n Type 'help' to see our list of commands"
+# 	user_reponse = gets.chomp.downcase
+# 	if user_response == "help" 
+# 		puts "These are the commands i understand\nUPDATE/ADD new user info = 'new'\n
+# 		"
+
+def schedule_maker(schedule) #pass in the database
+	puts "Hi, Welcome to the Roller Hockey Schedule. Please Enter your first name."
+	f_name = gets.chomp.downcase.capitalize
+	puts "Please enter your last name"
+	l_name = gets.chomp.downcase.capitalize
+	puts "Please enter the rink you plan to go to. Naper or Janes"
+	r_name = gets.chomp.downcase.capitalize
+	puts "Please enter your equipment? EX: shoes, blades, goalie, etc"
+	equipment = gets.chomp.downcase
+	puts "Finally, please enter your estimated time of arrival, in this format: 11:30am"
+	est_time = gets.chomp.to_s
+
+	schedule.execute("INSERT INTO users (first_name, last_name, time, equip) VALUES
+		(f_name, l_name, est_time, equipment)")
+	schedule.execute("INSERT INTO rinks (")
