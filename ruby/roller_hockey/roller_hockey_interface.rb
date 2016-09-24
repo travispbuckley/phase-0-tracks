@@ -71,24 +71,30 @@ def schedule_maker(schedule) #pass in the database
 	valid_input = false
 
 	until valid_input
-		puts "Hi, welcome to Roller Hockey Scheduler. If you are a new user, type 'new user' to enter your information.\nExisting users, type 'help' for a list of commands to update your information.\nType 'done' when finished"
+		puts "Hi, welcome to Roller Hockey Scheduler. If you are a new user, type 'new user' to enter your information.\nExisting users, type 'help' for a list of commands to update your information.\nType 'view' to check the current users list\nType 'done' when finished"
 
 	first_response = gets.chomp.downcase
 
 		if first_response == "new user"
+
 			puts "Hi, Welcome to the Roller Hockey Schedule. Please Enter your first name."
 			f_name = gets.chomp.downcase.capitalize
 			puts "Please enter your last name"
 			l_name = gets.chomp.downcase.capitalize
 			puts "Please enter the rink you plan to go to. Naper or Janes"
 			r_name = gets.chomp.downcase.capitalize
+				if r_name == "Naper"
+					rink_key = 1
+				elsif r_name == "Janes"
+					rink_key = 2
+				end 
 			puts "Please enter your equipment? EX: shoes, blades, goalie, etc"
 			equipment = gets.chomp.downcase
 			puts "Finally, please enter your estimated time of arrival, in this format: 11:30am"
 			est_time = gets.chomp.to_s
 			# The below is only for new users entering ALL of their information.
-			schedule.execute("INSERT INTO users (first_name, last_name, time, equip) VALUES (?, ?, ?, ?)",
-				f_name, l_name, est_time, equipment)
+			schedule.execute("INSERT INTO users (first_name, last_name, time, equip, rink_id) VALUES (?, ?, ?, ?, ?)",
+				f_name, l_name, est_time, equipment, rink_key)
 			schedule.execute("INSERT INTO rinks (rink_name) VALUES (?)", r_name)
 			valid_input = true
 
@@ -97,16 +103,18 @@ def schedule_maker(schedule) #pass in the database
 			until second_reponse == "exit"
 				puts "To edit your previous information, try the following commands:\nrink\nequipment\ntime\nThe above will allow you to edit any previously entered information. Type 'exit' when finished."
 				second_reponse = gets.chomp.downcase
-		#Fix rinks one last!! Might have to get rid of the second table
+	
 				if second_reponse == "rink"
 					puts "What is your last name?"
-						last_name = gets.chomp.downcase.capitalize
+						l_name = gets.chomp.downcase.capitalize
 					puts "What rink will you be going to?"
 						new_rink = gets.chomp.downcase.capitalize
-					puts "What rink were you going to originally?"
-						old_rink = gets.chomp.downcase.capitalize
-			# Need to use last name to set new rink name. But the tables aren't linked so how can i update the information using parameter from a different table?
-					schedule.execute("UPDATE rinks SET name=new_rink WHERE rink=old_rink")
+						if new_rink == "Naper"
+							rink_key = 1
+						elsif new_rink == "Janes"
+							rink_key = 2
+						end 
+				schedule.execute("UPDATE users SET rink_id = ? WHERE last_name = ?", [rink_key, l_name]) 
 				elsif second_reponse == "equipment"
 					puts "What is your last name?"
 					l_name = gets.chomp.downcase.capitalize
@@ -126,6 +134,10 @@ def schedule_maker(schedule) #pass in the database
 		elsif first_response == "done"
 			puts "Thank you! Your time has been set. Please come back to update your time, equipment, or rink at any time!"
 			valid_input = true
+		elsif first_response == "view"
+			p schedule.execute("SELECT * FROM users as u JOIN rinks as r ON u.rink_id=r.id") 
+
+
 		else
 			puts "I didn't understand you, please try again."
 		end 
