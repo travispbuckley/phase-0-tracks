@@ -62,42 +62,20 @@ create_table_cmd = <<-SQL
     FOREIGN KEY (rink_id) REFERENCES rinks(id)
   )
 SQL
-
-# create_table_two_cmd = <<-SQL
-#   CREATE TABLE IF NOT EXISTS rinks(
-#     id INTEGER PRIMARY KEY,
-#     rink_name VARCHAR(255)
-#   )
-# SQL
-
-
-
 # Now need to use a command to actually create the table
 schedule.execute(create_table_two_cmd)
 schedule.execute(create_table_cmd)
-
-
-# def schedule_maker
-# 	puts "Welcome to the Roller Hockey Scheduler\n Type 'help' to see our list of commands"
-# 	user_reponse = gets.chomp.downcase
-# 	if user_response == "help" 
-# 		puts "These are the commands i understand\nUPDATE/ADD new user info = 'new'\n
-# 		"
 
 def schedule_maker(schedule) #pass in the database
 	
 	valid_input = false
 
 	until valid_input
-		puts "Hi, welcome to Roller Hockey Scheduler. If you are a new user, type 'new user' to enter your information.\nExisting users, type 'help'
-	for a list of commands to update your information."
+		puts "Hi, welcome to Roller Hockey Scheduler. If you are a new user, type 'new user' to enter your information.\nExisting users, type 'help' for a list of commands to update your information.\nType 'done' when finished"
 
 	first_response = gets.chomp.downcase
 
-		if first_response == "help"
-			puts "To edit your previous information, try the following commands:\nfirst name\nlast name\nrink\nequipment\ntime\nThe above will allow you to edit any previously entered information."
-			valid_input = true
-		elsif first_response == "new user"
+		if first_response == "new user"
 			puts "Hi, Welcome to the Roller Hockey Schedule. Please Enter your first name."
 			f_name = gets.chomp.downcase.capitalize
 			puts "Please enter your last name"
@@ -112,6 +90,41 @@ def schedule_maker(schedule) #pass in the database
 			schedule.execute("INSERT INTO users (first_name, last_name, time, equip) VALUES (?, ?, ?, ?)",
 				f_name, l_name, est_time, equipment)
 			schedule.execute("INSERT INTO rinks (rink_name) VALUES (?)", r_name)
+			valid_input = true
+
+		elsif first_response == "help"
+			second_reponse = ""
+			until second_reponse == "exit"
+				puts "To edit your previous information, try the following commands:\nrink\nequipment\ntime\nThe above will allow you to edit any previously entered information. Type 'exit' when finished."
+				second_reponse = gets.chomp.downcase
+		#Fix rinks one last!! Might have to get rid of the second table
+				if second_reponse == "rink"
+					puts "What is your last name?"
+						last_name = gets.chomp.downcase.capitalize
+					puts "What rink will you be going to?"
+						new_rink = gets.chomp.downcase.capitalize
+					puts "What rink were you going to originally?"
+						old_rink = gets.chomp.downcase.capitalize
+			# Need to use last name to set new rink name. But the tables aren't linked so how can i update the information using parameter from a different table?
+					schedule.execute("UPDATE rinks SET name=new_rink WHERE rink=old_rink")
+				elsif second_reponse == "equipment"
+					puts "What is your last name?"
+					l_name = gets.chomp.downcase.capitalize
+					puts "What equipment will you be bringing"
+					user_equipment = gets.chomp
+					schedule.execute("UPDATE users SET equip= ? WHERE last_name= (?)", [user_equipment, l_name])
+				elsif second_reponse == "time"
+					puts "What is your last name?"
+					l_name = gets.chomp.downcase.capitalize
+					puts "Please enter a new, updated time? Please use XX:XXpm format"
+					new_time = gets.chomp
+					schedule.execute("UPDATE users SET time= ? WHERE last_name= (?)", [new_time, l_name])
+				else
+					puts "Please enter a valid response. See the options below"
+				end
+			end
+		elsif first_response == "done"
+			puts "Thank you! Your time has been set. Please come back to update your time, equipment, or rink at any time!"
 			valid_input = true
 		else
 			puts "I didn't understand you, please try again."
