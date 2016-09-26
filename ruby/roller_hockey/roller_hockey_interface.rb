@@ -1,14 +1,14 @@
-# A program that allows users to input their information
+# A program that allows users to input their information <--- Complete
 	# Name, estimated time of arrival (eta), type of equipment their 
 	#bringing, and their rink location
 		# Rink location will be a separate table linked to the users table
 		# by a foreign key 
-# Users capability:
+# Users capability: <--- Complete
 	# Update their eta
 		#Can completely erase their ETA if they can't make it
 	# Check the contents of the table (linked with the locations table)
 		# To see what other times players will be there
-# I need 2 tables within my schedule database
+# I need 2 tables within my schedule database <--- Complete
 	# 1. users
 			# Contains primary key, name, time, equipment, and rink_id attributes
 				# rink_id is foreign key for this table
@@ -17,16 +17,16 @@
 			# This is linked to the users table by its primary key
 			# Only 2 rinks to choose from: Naper and Janes
 # Method 1 (if more than 1 is needed)
-	# Intake user input
+	# Intake user input <--- Complete
 		# Name <-- Stored in users table
 		# ETA <-- Stored in users table
 		# equipment <-- Stored in users table
 		# rink location <-- Stored in rinks table (linked back to users table when viewing)
 	# Additional input
-		# User can ask for 'help' 
+		# User can ask for 'help' <--- Complete
 			# Gives user list of commands to use and their usage
 				# retrieve, update
-		# Retrieve info
+		# Retrieve info <--- Complete
 			# displays table contents showing who is playing
 		# Update info
 			# allows user to update their info by their NAME.
