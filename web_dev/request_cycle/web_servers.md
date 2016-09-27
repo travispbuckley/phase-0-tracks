@@ -1,11 +1,3 @@
-## Key design philosophies
-	- The user of linux has complete knowledge of the operating system,
-	and isn't restricted in any way. They are given complete control with the 
-	assumption that they know exactly what they are doing. 
-
-## VPS
-	- A good example i found was comparing it to renting a condo. While you share the property (building, land, etc), you still control what goes on inside, are responsible for everything inside, etc. A VPS gives your website a server to run on. It allows you to run a 'computer' on your computer. You can choose your OS, server location, etc. You can also choose the size, so you can pay much less if you don't expect a lot of traffic. You can also select location, meaning better speeds for users across the world.
-
 # Bad to run as root
 	- You are prone to mistakes with the accesability of linux commands. Running on root can destroy everything since it is the master. Also, having malicious software accidentally installed on root gives the software full access to the files. 
 
