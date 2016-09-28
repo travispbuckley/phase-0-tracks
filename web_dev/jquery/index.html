@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>this is the title!</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script>
+	
+	$(document).ready(function(){
+		$("h1").click(function(){
+			$(this).hide();	
+		});
+	});
+
+	$(document).ready(function() {
+		$("h3").hover(function(){
+				$(this).hide();
+		},
+		function(){
+			$(this).show();
+		});
+	});
+
+	$(document).ready(function(){
+		$("#story").mouseenter(function(){
+			$(this).css("color", "red");
+		});
+		$("#story").mouseout(function(){
+			$(this).css("color", "black");
+		});
+	});
+
+	$(document).ready(function(){
+			$("img").mouseenter(function(){
+				$(this).hide();
+			});
+			$("img").mouseout(function(){
+				$(this).show();
+			});
+		});
+	
+	$(document).ready(function(){
+	    $(".btn1").click(function(){
+	        $("a").slideUp();
+	    });
+	    $(".btn2").click(function(){
+	        $("a").slideDown();
+	    });
+	});
+
+</script>
+
+
+</head>
+<body>
+	<h1>This is a header</h1>
+	<main>	
+		<h3>This is header for main section</h3>
+		<div id="story">
+			<p>This is the story all about how my life got twistered upside down so i'd like to take a minute just sit right there ill tell all about the story of how i became the price of bel air. (or something like that :) )</p>
+
+		</div>
+		<div id="source">
+			<nav>
+				<a href="http://www.google.com">Google</a>
+				<a href="http://www.facebook.com">facebook</a>
+				<button class="btn1">Slide up</button>
+				<button class="btn2">Slide down</button>
+			</nav>
+		</div>
+
+		<img src="..\..\..\..\harmbeeee.JPG">
+		
+
+
+
+	</main>
+
+</body>
+</html>
