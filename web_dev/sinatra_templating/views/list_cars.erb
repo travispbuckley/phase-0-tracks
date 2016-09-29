@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+		car listing
+		</title>
+	</head>
+		<body>
+			<h1> here are all the cars you listed</h1>
+			<ul>
+				<% @cars.each do |cars| %>
+			<li>
+				<%= cars['name']%>
+			</li>
+				<% end%>
+			</ul>
+		</body>
+</html>
